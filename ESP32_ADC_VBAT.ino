@@ -46,8 +46,12 @@ static esp_adc_cal_characteristics_t *adcChar;
 const float battery_min = 3.3; // (V) minimum voltage of battery before shutdown
 const float battery_max = 4.2; // (V) maximum voltage of battery
 /* R1 & R2 */
-const float R1 = 300000.0;     //300k
-const float R2 = 100000.0;     //100k
+const float R1 = 300500.0;     //300k
+const float R2 = 100400.0;     //100k
+/* adc电压手动校准（adc接地读出来多少这里就写多少） */
+const float adc_offset = 0.02;
+/* 电池电压手动补偿 */
+const float vol_offset = 0.00;
 
 uint32_t adc_read_val()
 {
@@ -95,13 +99,13 @@ void setup()
 void loop()
 {
     /*adc端电压*/
-    float adc_voltage = (float)adc_read_val() / 1000.0f;
+    float adc_voltage = (float)adc_read_val() / 1000.0f + adc_offset;
     Serial.print("ADC voltage: ");
     Serial.print(adc_voltage);
     Serial.println("V");
 
     /*通过R1&R2推算电池电压*/
-    float battery_voltage = (R1 + R2) / R2 * adc_voltage;
+    float battery_voltage = (R1 + R2) / R2 * adc_voltage + vol_offset;
     Serial.print("Battery voltage: ");
     Serial.print(battery_voltage);
     Serial.println("V");
