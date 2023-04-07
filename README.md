@@ -11,6 +11,7 @@
   esp_err_t adc_vref_to_gpio（adc_unit_t adc_unit， gpio_num_t GPIO)
 ```
 * #####      ESP32 ADC 对噪声非常敏感，导致 ADC 读数存在较大差异。根据使用场景，可以将旁路电容（例如100 nF陶瓷电容）连接到正在使用的ADC输入焊盘，以最大限度地降低噪声
+* #####      核心部分未使用arduino语法封装，方便移植至esp－idf
 * #####      有任何不明白的地方可以提issue或对照[*官方文档*](https://docs.espressif.com/projects/esp-idf/en/release-v4.4/esp32c3/api-reference/peripherals/adc.html#_CPPv416adc_vref_to_gpio10adc_unit_t10gpio_num_t)进行学习
 
 ##         相关文档资料
