@@ -19,7 +19,7 @@
 * #####       英文参考：https://stackoverflow.com/questions/56833346/how-to-measure-battery-voltage-with-internal-adc-esp32#
 
 ##        实验图片
-#####     电压精度能达到±0.2左右
+#####     电压精度能达到±0.01V左右
 * #####       串口显示
 ![串口](https://user-images.githubusercontent.com/60030172/230500531-f96f4d2b-c7cd-4475-9d0a-f4bab2bddecd.png)
 * #####       万用表显示
